@@ -28,8 +28,11 @@
 
 - name: Install Python3 Pip
   apt:
-    name: python3-pip
+    name: "{{ item }}"
     state: present
+  loop:
+    - python3-pip
+    - vim
   become: yes
 
 - name: Install Python Docker SDK
