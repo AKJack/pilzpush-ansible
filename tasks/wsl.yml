@@ -1,0 +1,23 @@
+---
+# TODO: Actually make docker work inside the WSL
+  - name: Apply available package updates
+    apt:
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400
+    become: yes
+
+  - name: Install extra .deb packages
+    apt:
+      name: 
+        - python3
+      state: latest
+    become: yes
+
+  - name: Install extra .pip packages
+    pip:
+      name: 
+        # - docker-py
+        - docker-compose
+      state: latest
+    become: yes
