@@ -9,4 +9,7 @@
     - role: ../roles/pilzpush-ansible-influxdb
       tags:
         - database 
+    - role: ../roles/pilzpush-ansible-grafana
+      tags:
+        - blick
 
