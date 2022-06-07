@@ -1,0 +1,3 @@
+[submodule "roles/pilzpush-ansible-influxdb"]
+	path = roles/pilzpush-ansible-influxdb
+	url = git@github.com:AKJack/pilzpush-ansible-influxdb.git

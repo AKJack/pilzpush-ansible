@@ -1,0 +1,27 @@
+---
+- name: Apply available package updates
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 86400
+  become: yes
+
+- name: Get Docker Install Script
+  get_url:
+    url: https://get.docker.com
+    dest: ~/get-docker.sh
+    mode: 0755
+
+- name: Run Docker Install Script
+  shell:
+    cmd: ./get-docker.sh
+    chdir: ~/
+
+- name: Add users to Docker group
+  user:
+    user: "{{ item }}"
+    groups: docker
+    append: yes
+    state: present
+  loop: "{{ vault_users }}"
+  become: yes
