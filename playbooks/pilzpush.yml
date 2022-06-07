@@ -3,7 +3,8 @@
   hosts: all
   gather_facts: yes
   pre_tasks:
-    - include: ../tasks/pi.yml
+    - include_tasks: ../tasks/pi.yml
+      tags: pre_tasks
   roles:
     - role: ../roles/pilzpush-ansible-influxdb
       tags:
