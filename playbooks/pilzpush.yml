@@ -12,4 +12,7 @@
     - role: ../roles/pilzpush-ansible-grafana
       tags:
         - blick
+    - role: ../roles/pilzpush-ansible-collector
+      tags:
+        - col
 
