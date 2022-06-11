@@ -15,4 +15,3 @@
     - role: ../roles/pilzpush-ansible-collector
       tags:
         - col
-
