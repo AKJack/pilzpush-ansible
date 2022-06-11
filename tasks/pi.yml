@@ -44,3 +44,14 @@
     - docker
     - docker-compose
   become: yes
+
+- name: Checkout Repos on Remote
+  git:
+    repo: git@github.com:AKJack/Pilzpush.git
+    dest: "~/pilzpush"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    force: yes
+  become: yes
+  tags: git
