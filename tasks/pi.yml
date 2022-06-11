@@ -1,0 +1,59 @@
+---
+- name: Apply available package updates
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 86400
+  become: yes
+
+- name: Get Docker Install Script
+  get_url:
+    url: https://get.docker.com
+    dest: ~/get-docker.sh
+    mode: 0755
+  tags: docker_install
+
+- name: Run Docker Install Script
+  shell:
+    cmd: ./get-docker.sh
+    chdir: ~/
+  tags: docker_install
+
+- name: Add users to Docker group
+  user:
+    user: "{{ item }}"
+    groups: docker
+    append: yes
+    state: present
+  loop: "{{ vault_users }}"
+  become: yes
+  tags: docker_install
+
+- name: Install Deb Packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - python3-pip
+    - vim
+    - git
+  become: yes
+
+- name: Install Python Docker SDK
+  pip:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - docker
+    - docker-compose
+  become: yes
+
+- name: Checkout Repos on Remote
+  git:
+    repo: "git@github.com:{{ github_user }}/Pilzpush.git"
+    dest: "~/pilzpush"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    force: yes
+  tags: git
