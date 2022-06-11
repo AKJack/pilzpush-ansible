@@ -26,13 +26,14 @@
   loop: "{{ vault_users }}"
   become: yes
 
-- name: Install Python3 Pip
+- name: Install Deb Packages
   apt:
     name: "{{ item }}"
     state: present
   loop:
     - python3-pip
     - vim
+    - git
   become: yes
 
 - name: Install Python Docker SDK
