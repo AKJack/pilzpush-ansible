@@ -4,3 +4,6 @@
 [submodule "roles/pilzpush-ansible-grafana"]
 	path = roles/pilzpush-ansible-grafana
 	url = git@github.com:AKJack/pilzpush-ansible-grafana.git
+[submodule "roles/pilzpush-ansible-collector"]
+	path = roles/pilzpush-ansible-collector
+	url = git@github.com:AKJack/pilzpush-ansible-collector.git
