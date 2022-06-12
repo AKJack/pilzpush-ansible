@@ -5,6 +5,8 @@
   pre_tasks:
     - include_tasks: ../tasks/pi.yml
       tags: pre_tasks
+    - include_tasks: ../tasks/influxdb-cxx.yml
+      tags: influxdb-cxx
   roles:
     - role: ../roles/pilzpush-ansible-influxdb
       tags:
