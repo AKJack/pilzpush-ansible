@@ -37,8 +37,6 @@
     - python3-pip
     - vim
     - git
-    - libcurl4-openssl-dev
-    - libboost-all-dev
   become: yes
 
 - name: Install Python Docker SDK
