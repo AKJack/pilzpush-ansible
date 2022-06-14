@@ -7,3 +7,6 @@
 [submodule "roles/pilzpush-ansible-collector"]
 	path = roles/pilzpush-ansible-collector
 	url = git@github.com:AKJack/pilzpush-ansible-collector.git
+[submodule "roles/pilzpysh-ansible-collector"]
+	path = roles/pilzpysh-ansible-collector
+	url = git@github.com:AKJack/pilzpysh-ansible-collector.git
